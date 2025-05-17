@@ -1,24 +1,24 @@
 public class Parser {
     private byte[] input;
-    private int current; 
+    private int current;
 
-	public Parser (byte[] input) {
+    public Parser(byte[] input) {
         this.input = input;
+        this.current = 0; // inicializa o ponteiro
     }
 
     public void parse () {
-           public void parse () {
             expr();
-        }
+        
     }
 
-     private char peek () {
+    private char peek() {
         if (current < input.length)
-           return (char)input[current];
-       return '\0';
+            return (char) input[current];
+        return '\0';
     }
 
-    private void match (char c) {
+    private void match(char c) {
         if (c == peek()) {
             current++;
         } else {
@@ -31,16 +31,16 @@ public class Parser {
         oper();
     }
 
-    void digit () {
+    void digit() {
         if (Character.isDigit(peek())) {
             System.out.println("push " + peek());
             match(peek());
         } else {
-           throw new Error("syntax error");
+            throw new Error("syntax error");
         }
     }
 
-	void oper () {
+    void oper() {
         if (peek() == '+') {
             match('+');
             digit();
@@ -51,9 +51,7 @@ public class Parser {
             digit();
             System.out.println("sub");
             oper();
-        } 
+        }
     }
-
-
 
 }
