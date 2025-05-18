@@ -4,6 +4,8 @@ public enum TokenType {
     // Literals.
     NUMBER,
     IDENT,
-    
+    EQ,
+    SEMICOLON,
+
     EOF
 }

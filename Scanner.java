@@ -51,6 +51,13 @@ public class Scanner {
             case '-':
                 advance();
                 return new Token(TokenType.MINUS, "-");
+            case '=':
+                advance();
+                return new Token(TokenType.EQ, "=");
+
+            case ';':
+                advance();
+                return new Token(TokenType.SEMICOLON, ";");
             case '\0':
                 return new Token(TokenType.EOF, "EOF");
             default:
