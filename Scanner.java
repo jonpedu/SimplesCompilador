@@ -20,12 +20,12 @@ public class Scanner {
         }
     }
 
-    public String nextToken () {
+    public String nextToken() {
         char ch = peek();
         if (ch == '0') {
             advance();
             return Character.toString(ch);
-        }  else if (Character.isDigit(ch))
+        } else if (Character.isDigit(ch))
             return number();
 
         switch (ch) {
