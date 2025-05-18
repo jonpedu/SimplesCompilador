@@ -8,6 +8,7 @@ public class Scanner {
     static {
         keywords = new HashMap<>();
         keywords.put("let", TokenType.LET);
+        keywords.put("print", TokenType.PRINT);
     }
 
     private byte[] input;
@@ -64,7 +65,6 @@ public class Scanner {
             case '=':
                 advance();
                 return new Token(TokenType.EQ, "=");
-
             case ';':
                 advance();
                 return new Token(TokenType.SEMICOLON, ";");
