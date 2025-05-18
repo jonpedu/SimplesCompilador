@@ -1,7 +1,4 @@
-import java.util.Scanner;
-
 public class Parser {
-    public class Parser {
     
     private Scanner scan;
     private char currentToken;
