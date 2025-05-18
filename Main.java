@@ -1,13 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        String input = "289-85+0+69";
+        String input = "45  + preco - 876";
         Scanner scan = new Scanner(input.getBytes());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
-        System.out.println(scan.nextToken());
+        for (Token tk = scan.nextToken(); tk.type != TokenType.EOF; tk = scan.nextToken()) {
+            System.out.println(tk);
+        }
     }
 }
