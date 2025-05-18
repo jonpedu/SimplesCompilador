@@ -1,4 +1,14 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Scanner {
+
+    private static final Map<String, TokenType> keywords;
+
+    static {
+        keywords = new HashMap<>();
+        keywords.put("let", TokenType.LET);
+    }
 
     private byte[] input;
     private int current;
@@ -81,7 +91,10 @@ public class Scanner {
             advance();
 
         String id = new String(input, start, current - start);
-        return new Token(TokenType.IDENT, id);
+        TokenType type = keywords.get(id);
+        if (type == null)
+            type = TokenType.IDENT;
+        return new Token(type, id);
     }
 
     private void skipWhitespace() {
