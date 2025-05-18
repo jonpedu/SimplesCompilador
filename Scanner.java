@@ -21,6 +21,7 @@ public class Scanner {
     }
 
     public Token nextToken() {
+        skipWhitespace();
         char ch = peek();
         if (ch == '0') {
             advance();
@@ -50,6 +51,14 @@ public class Scanner {
 
         String n = new String(input, start, current - start);
         return new Token(TokenType.NUMBER, n);
+    }
+
+    private void skipWhitespace() {
+        char ch = peek();
+        while (ch == ' ' || ch == '\r' || ch == '\t' || ch == '\n') {
+            advance();
+            ch = peek();
+        }
     }
 
 }
